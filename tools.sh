@@ -7,7 +7,9 @@ chose what you want it do(eg:a,b,c,d.....):
 a:install mysql server
 b:install sql server 
 c:install php script
-d:install .net core 3.0 and .net core 2.2"
+d:install .net core 3.0 and .net core 2.2
+f:install docker 0.16.2
+"
 read id
 if [ "${id}" = "a" ];then
 	service mysqld start
@@ -197,4 +199,7 @@ elif [ "${id}" = "d" ];then
         elif [ "${systemid}" = "i" ];then
 		exit
 	fi
+elif [ "${id}" = "f" ];then
+	curl -L https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && chmod +x /tmp/docker-machine && sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
+
 fi
