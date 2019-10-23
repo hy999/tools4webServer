@@ -1,26 +1,27 @@
 #! /bin/sh
 #! /bin/bash
-echo "此脚本仅在ubuntu 19.10使用通过
-建议在安装前先卸载已安装工具
-执行此脚本需要root权限，建议命令:sudo ssh tools.sh
-a:安装mysql服务端
-b:安装sql-server服务端
-c:安装PHP脚本
-d:安装.net core 3.0 + .net core 2.2"
+echo "
+when you install the software,you must sure you server don't have it!
+The script need root'pression to do,you should use: sudo sh tools.sh
+chose what you want it do(eg:a,b,c,d.....):
+a:install mysql server
+b:install sql server 
+c:install php script
+d:install .net core 3.0 and .net core 2.2"
 read id
 if [ "${id}" = "a" ];then
 	service mysqld start
 	if [ $? -eq 0 ];then
-          echo "mysql已被安装,程序自动退出"
+          echo "mysql is installed,the program will exit."
         else
-          echo "功能暂未添加"
+          echo "The tools wasn't add,please wait for it"
 	fi
 elif [ "${id}" = "b" ];then
-	echo "功能暂未加"
+	echo "The tools wasn't add,please wait for it"
 elif [ "${id}" = "c" ];then
-	echo "功能暂未添加"
+	echo "The tools wasn't add,please wait for it"
 elif [ "${id}" = "d" ];then
-	echo "请选择您的操作系统：
+	echo "chose you system-id(eg:a,b,c...)：
 	a:Ubuntu 16.04
 	b:Ubuntu 18.04
 	c:Ubuntu 19.04
@@ -62,17 +63,17 @@ elif [ "${id}" = "d" ];then
                 sudo apt-get update
                 sudo apt-get install dotnet-sdk-3.0
                 if [ $? -eq 0 ];then
-                        echo ".NET Core 3.0 安装成功"
+                        echo ".NET Core 3.0 installed successful!"
                 else
-                        echo ".NET Core 3.0安装失败，正在尝试安装.NET Core 2.2"
+                        echo "fail to install .NET Core 3.0，try install .NET Core 2.2"
                 fi
                 sudo apt-get update
                 sudo apt-get install dotnet-sdk-2.2
                 if [ $? -eq 0 ];then
-                        echo ".NET Core 2.2 安装成功"
+                        echo ".NET Core 2.2 installed successful!"
                         dotnet
                 else
-                        echo ".NET Core 2.2安装失败，请到 https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install 查看帮助内容"
+                        echo "fail to install .NET Core 2.2, link to  https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install to get help"
                 fi
 
 	elif [ "${systemid}" = "c" ];then
@@ -83,17 +84,17 @@ elif [ "${id}" = "d" ];then
                 sudo apt-get update
                 sudo apt-get install dotnet-sdk-3.0
                 if [ $? -eq 0 ];then
-                        echo ".NET Core 3.0 安装成功"
+                        echo ".NET Core 3.0 install successful!"
                 else
-                        echo ".NET Core 3.0安装失败，正在尝试安装.NET Core 2.2"
+                        echo "fail to install .NET Core 3.0，try to install .NET Core 2.2"
                 fi
                 sudo apt-get update
                 sudo apt-get install dotnet-sdk-2.2
                 if [ $? -eq 0 ];then
-                        echo ".NET Core 2.2 安装成功"
+                        echo ".NET Core 2.2 install successeful!"
                         dotnet
                 else
-                        echo ".NET Core 2.2安装失败，请到 https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install 查看帮助内容"
+                        echo "fail to install .NET Core 2.2，link to  https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install get help"
                 fi
 
 	elif [ "${systemid}" = "d" ];then
@@ -108,17 +109,17 @@ elif [ "${id}" = "d" ];then
 		sudo apt-get update
 		sudo apt-get install dotnet-sdk-3.0
 		if [ $? -eq 0 ];then
-                        echo ".NET Core 3.0 安装成功"
+                        echo ".NET Core 3.0 install successful!"
                 else
-                        echo ".NET Core 3.0安装失败，正在尝试安装.NET Core 2.2"
+                        echo "fail to install .NET Core 3.0，try to install .NET Core 2.2"
                 fi
                 sudo apt-get update
                 sudo apt-get install dotnet-sdk-2.2
                 if [ $? -eq 0 ];then
-                        echo ".NET Core 2.2 安装成功"
+                        echo ".NET Core 2.2 install successful!"
                         dotnet
                 else
-                        echo ".NET Core 2.2安装失败，请到 https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install 查看帮助内容"
+                        echo "fail to install .NET Core 2.2 link to https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install get hlep"
                 fi
 
 	elif [ "${systemid}" = "e" ];then
@@ -133,68 +134,67 @@ elif [ "${id}" = "d" ];then
                 sudo apt-get update
                 sudo apt-get install dotnet-sdk-3.0
                 if [ $? -eq 0 ];then
-                        echo ".NET Core 3.0 安装成功"
+                        echo ".NET Core 3.0 install successful!"
                 else
-                        echo ".NET Core 3.0安装失败，正在尝试安装.NET Core 2.2"
+                        echo "fail to install .NET Core 3.0 ，try to install .NET Core 2.2"
                 fi
                 sudo apt-get update
                 sudo apt-get install dotnet-sdk-2.2
                 if [ $? -eq 0 ];then
-                        echo ".NET Core 2.2 安装成功"
+                        echo ".NET Core 2.2 install successful!"
                         dotnet
                 else
-                        echo ".NET Core 2.2安装失败，请到 https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install 查看帮助内容"
+                        echo "fail to install .NET Core 2.2，link to https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install get help"
                 fi
 
 	elif [ "${systemid}" = "f" ];then
                 sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
 		sudo yum install dotnet-sdk-3.0
 		 if [ $? -eq 0 ];then
-                        echo ".NET Core 3.0 安装成功"
+                        echo ".NET Core 3.0 install successful!"
                 else
-                        echo ".NET Core 3.0安装失败，正在尝试安装.NET Core 2.2"
+                        echo "fail to install .NET Core 3.0，try to install .NET Core 2.2"
                 fi
                 sudo yum install dotnet-sdk-2.2
                 if [ $? -eq 0 ];then
-                        echo ".NET Core 2.2 安装成功"
+                        echo ".NET Core 2.2 installed successful!"
                         dotnet
                 else
-                        echo ".NET Core 2.2安装失败，请到 https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install 查看帮助内容"
+                        echo "fail to install .NET Core 2.2，link to  https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install to get help"
                 fi
 	elif [ "${systemid}" = "g" ];then
 		yum install rh-dotnet30 -y
 		scl enable rh-dotnet30 bash
           	if [ $? -eq 0 ];then
-          		echo ".NET Core 3.0 安装成功"
+          		echo ".NET Core 3.0 install successful!"
        		else
-        	  	echo ".NET Core 3.0安装失败，正在尝试安装.NET Core 2.2"
+        	  	echo "fail to install .NET Core 3.0，try to install .NET Core 2.2"
 	        fi
 		yum install rh-dotnet22 -y
                 scl enable rh-dotnet22 bash
 		if [ $? -eq 0 ];then
-                        echo ".NET Core 2.2 安装成功"
+                        echo ".NET Core 2.2 install successful!"
 			dotnet
                 else
-                        echo ".NET Core 2.2安装失败，请到 https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install 查看帮助内容"
+                        echo "fail to install .NET Core 2.2，link to  https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install get help"
                 fi
       
 	elif [ "${systemid}" = "h" ];then
                	sudo dnf install dotnet-sdk-3.0
 	       	if [ $? -eq 0 ];then
-                        echo ".NET Core 3.0 安装成功"
+                        echo ".NET Core 3.0 install successful!"
                 else
-                        echo ".NET Core 3.0安装失败，正在尝试安装.NET Core 2.2"
+                        echo "fail to install .NET Core 3.0，try to install .NET Core 2.2"
                 fi
                 sudo dnf install dotnet-sdk-3.0
 	       	if [ $? -eq 0 ];then
-                        echo ".NET Core 2.2 安装成功"
+                        echo ".NET Core 2.2 install successful!"
                         dotnet 
                 else
-                        echo ".NET Core 2.2安装失败，请到 https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install 查看帮助内容"
+                        echo "fail to install .NET Core 2.2，link to https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install get help"
                 fi
 
         elif [ "${systemid}" = "i" ];then
 		exit
-
 	fi
 fi
